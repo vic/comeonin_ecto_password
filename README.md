@@ -1,4 +1,4 @@
-# Comeonin Ecto Password
+# Comeonin Ecto Password  <a href="https://travis-ci.org/vic/comeonin_ecto_password"><img src="https://travis-ci.org/vic/comeonin_ecto_password.svg"></a>
 
 A [custom Ecto type](https://hexdocs.pm/ecto/Ecto.Type.html#summary) for storing encrypted passwords using [Comeonin](https://github.com/elixircnx/comeonin)
 
@@ -46,17 +46,17 @@ Also, be sure to look at [comeonin](https://github.com/elixircnx/comeonin#instal
 
 ## Installation
 
-[Available in Hex](https://hex.pm/packages/comeonin_ecto_type), the package can be installed as:
+[Available in Hex](https://hex.pm/packages/comeonin_ecto_password), the package can be installed as:
 
-  1. Add comeonin_ecto_type to your list of dependencies in `mix.exs`:
+  1. Add comeonin_ecto_password to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:comeonin_ecto_type, "~> 0.0.1"}]
+  [{:comeonin_ecto_password, "~> 0.0.2"}]
 end
 ```
 
-  2. Ensure comeonin_ecto_type is started before your application:
+  2. Ensure comeonin is started before your application:
 
 ```elixir
 def application do
