@@ -1,5 +1,7 @@
 defmodule Comeonin.Ecto.Password do
 
+  @behaviour Ecto.Type
+
   alias Comeonin.Bcrypt
   alias Comeonin.Pbkdf2
   alias Comeonin.Config
