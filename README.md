@@ -2,6 +2,9 @@
 
 A [custom Ecto type](https://hexdocs.pm/ecto/Ecto.Type.html#summary) for storing encrypted passwords using [Comeonin](https://github.com/elixircnx/comeonin)
 
+
+For ecto 2 compatibility use the `ecto-2` branch or version `2.0.0-rc0`
+
 ## Usage
 
 On your schema, define secure fields with this type:
