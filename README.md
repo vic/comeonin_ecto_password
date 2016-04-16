@@ -52,7 +52,7 @@ Also, be sure to look at [comeonin](https://github.com/elixircnx/comeonin#instal
 
 ```elixir
 def deps do
-  [{:comeonin_ecto_password, "~> 0.0.3"}]
+  [{:comeonin_ecto_password, "~> 2.0.0-rc.0"}]
 end
 ```
 

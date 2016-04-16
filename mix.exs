@@ -44,7 +44,7 @@ defmodule ComeoninEctoPassword.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:ecto, "~> 1.1.2"},
+    [{:ecto, "~> 2.0.0-rc.0"},
      {:comeonin, "~> 2.0"}]
   end
 end
