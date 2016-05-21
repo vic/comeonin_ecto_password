@@ -21,7 +21,7 @@ defmodule ComeoninEctoPassword.Mixfile do
 
   def description do
     """
-    Ecto custom type for storing encrypted password using Comonin
+    Ecto custom type for storing encrypted password using Comeonin
     """
   end
 
