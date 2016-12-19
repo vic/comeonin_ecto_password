@@ -3,8 +3,8 @@ defmodule ComeoninEctoPassword.Mixfile do
 
   def project do
     [app: :comeonin_ecto_password,
-     version: "2.0.0-rc.0",
-     elixir: "~> 1.1",
+     version: "2.0.0",
+     elixir: "~> 1.3",
      description: description,
      package: package,
      build_embedded: Mix.env == :prod,
@@ -44,7 +44,7 @@ defmodule ComeoninEctoPassword.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:ecto, "~> 2.0.0-rc.0"},
+    [{:ecto, "~> 2.0"},
      {:comeonin, "~> 2.0"}]
   end
 end
