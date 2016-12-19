@@ -3,7 +3,7 @@
 A [custom Ecto type](https://hexdocs.pm/ecto/Ecto.Type.html#summary) for storing encrypted passwords using [Comeonin](https://github.com/elixircnx/comeonin)
 
 
-For ecto 2 compatibility use the `ecto-2` branch or version `2.0.0-rc0`
+For ecto 1 compatibility use the `ecto-1` branch.
 
 ## Usage
 
@@ -55,7 +55,7 @@ Also, be sure to look at [comeonin](https://github.com/elixircnx/comeonin#instal
 
 ```elixir
 def deps do
-  [{:comeonin_ecto_password, "~> 2.0.0-rc.0"}]
+  [{:comeonin_ecto_password, "~> 2.0.0"}]
 end
 ```
 
