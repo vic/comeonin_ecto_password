@@ -3,7 +3,7 @@ defmodule ComeoninEctoPassword.Mixfile do
 
   def project do
     [app: :comeonin_ecto_password,
-     version: "2.0.0",
+     version: "2.1.0",
      elixir: "~> 1.3",
      description: description,
      package: package,
