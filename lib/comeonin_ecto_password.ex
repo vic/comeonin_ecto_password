@@ -1,9 +1,9 @@
 defmodule Comeonin.Ecto.Password do
-
   @behaviour Ecto.Type
 
   alias Comeonin.Bcrypt
   alias Comeonin.Pbkdf2
+  alias Comeonin.Argon2
   alias Comeonin.Config
 
   @moduledoc """
@@ -17,7 +17,9 @@ defmodule Comeonin.Ecto.Password do
 
   Then on your changeset just cast from plain-text params
 
-    cast(changeset, params, ~w(password), ~w())
+    changeset
+    |> cast(attrs, [:password])
+    |> validate_required([:password])
 
   After casting the password will already be encrypted,
   and can be saved to your database string column.
@@ -49,20 +51,24 @@ defmodule Comeonin.Ecto.Password do
   end
 
   defp hash_password(plain_password) do
-    hash_password(crypt, plain_password)
+    hash_password(crypt(), plain_password)
   end
 
   defp hash_password(Pbkdf2, plain_password) do
-    salt = Pbkdf2.gen_salt(pbkdf2_salt_len)
-    Pbkdf2.hashpass(plain_password, salt, Config.pbkdf2_rounds)
+    salt = Pbkdf2.gen_salt(pbkdf2_salt_len())
+    Pbkdf2.hashpass(plain_password, salt, Config.pbkdf2_rounds())
   end
 
   defp hash_password(Bcrypt, plain_password) do
-    salt = Bcrypt.gen_salt(Config.bcrypt_log_rounds)
+    salt = Bcrypt.gen_salt(Config.bcrypt_log_rounds())
     Bcrypt.hashpass(plain_password, salt)
   end
 
+  defp hash_password(Argon2, plain_password) do
+    Argon2.hashpwsalt(plain_password)
+  end
+
   def valid?(plain_password, hashed_password) do
-    crypt.checkpw(plain_password, hashed_password)
+    crypt().checkpw(plain_password, hashed_password)
   end
 end

@@ -8,13 +8,14 @@ defmodule ComeoninEctoPasswordTest do
   end
 
   test "cast string into crypted hash" do
-    cast("hello") |> case do
-       {:ok, x} when is_binary(x) -> assert valid?("hello", x)
+    cast("hello")
+    |> case do
+      {:ok, x} when is_binary(x) -> assert valid?("hello", x)
     end
   end
 
   test "load string" do
-    assert {:ok ,"foo"} = load("foo")
+    assert {:ok, "foo"} = load("foo")
     assert :error = load(nil)
   end
 
@@ -22,5 +23,4 @@ defmodule ComeoninEctoPasswordTest do
     assert {:ok, "foo"} = dump("foo")
     assert :error = dump(nil)
   end
-
 end
