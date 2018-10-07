@@ -5,7 +5,7 @@ defmodule ComeoninEctoPassword.Mixfile do
     [
       app: :comeonin_ecto_password,
       version: "2.1.0",
-      elixir: "~> 1.3",
+      elixir: "~> 1.4",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
