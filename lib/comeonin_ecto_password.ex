@@ -1,10 +1,5 @@
 defmodule Comeonin.Ecto.Password do
-
   @behaviour Ecto.Type
-
-  alias Comeonin.Bcrypt
-  alias Comeonin.Pbkdf2
-  alias Comeonin.Config
 
   @moduledoc """
   A custom Ecto type for storing encrypted passwords.
@@ -33,6 +28,7 @@ defmodule Comeonin.Ecto.Password do
 
   def type, do: :string
 
+  def cast(""), do: {:ok, ""}
   def cast(value) when is_binary(value), do: {:ok, hash_password(value)}
   def cast(_), do: :error
 
@@ -44,25 +40,11 @@ defmodule Comeonin.Ecto.Password do
 
   defp crypt, do: Application.get_env(:comeonin, Ecto.Password, Comeonin.Pbkdf2)
 
-  defp pbkdf2_salt_len do
-    Application.get_env(:comeonin, :pbkdf2_salt_len, 16)
-  end
-
   defp hash_password(plain_password) do
-    hash_password(crypt, plain_password)
-  end
-
-  defp hash_password(Pbkdf2, plain_password) do
-    salt = Pbkdf2.gen_salt(pbkdf2_salt_len)
-    Pbkdf2.hashpass(plain_password, salt, Config.pbkdf2_rounds)
-  end
-
-  defp hash_password(Bcrypt, plain_password) do
-    salt = Bcrypt.gen_salt(Config.bcrypt_log_rounds)
-    Bcrypt.hashpass(plain_password, salt)
+    crypt().hashpwsalt(plain_password)
   end
 
   def valid?(plain_password, hashed_password) do
-    crypt.checkpw(plain_password, hashed_password)
+    crypt().checkpw(plain_password, hashed_password)
   end
 end
