@@ -38,13 +38,17 @@ defmodule Comeonin.Ecto.Password do
   def dump(x) when is_binary(x), do: {:ok, x}
   def dump(_), do: :error
 
-  defp crypt, do: Application.get_env(:comeonin, Ecto.Password, Comeonin.Pbkdf2)
+  defp crypt, do: Application.get_env(:comeonin, Ecto.Password, Pbkdf2)
 
   defp hash_password(plain_password) do
-    crypt().hashpwsalt(plain_password)
+    crypt().hash_pwd_salt(plain_password)
   end
 
   def valid?(plain_password, hashed_password) do
-    crypt().checkpw(plain_password, hashed_password)
+    crypt().verify_pass(plain_password, hashed_password)
   end
+
+  def embed_as(_), do: :dump
+
+  def equal?(t1, t2), do: t1 == t2
 end

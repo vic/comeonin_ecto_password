@@ -6,6 +6,8 @@ A [custom Ecto type](https://hexdocs.pm/ecto/Ecto.Type.html#summary) for storing
 
 For ecto 1 compatibility use the `ecto-1` branch.
 
+_Version 3.x is compatible with `comeonin` ~> 5.0_, use version 2.x for compatibility with older versions.
+
 ## Usage
 
 On your schema, define secure fields with this type:
@@ -35,11 +37,11 @@ Comeonin.Ecto.Password.valid?("plain_password", user.password)
 
 ## Configuration
 
-In your environment file, choose one of `Comeonin.Pbkdf2`, `Comeonin.Bcrypt`, `Comeonin.Argon2`.
-The default is 'Comeonin.Pbkdf2`, but you still need to include it in your `mix.exs`!
+In your environment file, choose one of `Pbkdf2`, `Bcrypt`, `Argon2`.
+The default is 'Pbkdf2`, but you still need to include it in your `mix.exs`!
 
 ```elixir
-config :comeonin, Ecto.Password, Comeonin.Pbkdf2
+config :comeonin, Ecto.Password, Pbkdf2
 
 # when using pkbdf2
 config :comeonin, :pbkdf2_rounds, 120_000
@@ -59,6 +61,6 @@ Add comeonin_ecto_password to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:comeonin_ecto_password, "~> 2.2.0"}]
+  [{:comeonin_ecto_password, "~> 3.0.0"}]
 end
 ```

@@ -4,8 +4,8 @@ defmodule ComeoninEctoPassword.Mixfile do
   def project do
     [
       app: :comeonin_ecto_password,
-      version: "2.2.0",
-      elixir: "~> 1.4",
+      version: "3.0.0",
+      elixir: "~> 1.7",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
@@ -49,12 +49,11 @@ defmodule ComeoninEctoPassword.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:ecto, "~> 2.2"},
-      {:comeonin, "~> 4.0"},
+      {:ecto, "~> 3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:pbkdf2_elixir, "~> 0.12", optional: true},
-      {:bcrypt_elixir, "~> 1.1", optional: true},
-      {:argon2_elixir, "~> 1.3", optional: true}
+      {:pbkdf2_elixir, "~> 1.0", optional: true},
+      {:bcrypt_elixir, "~> 2.0", optional: true},
+      {:argon2_elixir, "~> 2.0", optional: true}
     ]
   end
 end
