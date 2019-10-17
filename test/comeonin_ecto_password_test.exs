@@ -8,7 +8,7 @@ defmodule ComeoninEctoPasswordTest do
   end
 
   # nil -> Use default
-  for crypt <- [Comeonin.Bcrypt, Comeonin.Argon2, Comeonin.Pbkdf2, nil] do
+  for crypt <- [Bcrypt, Argon2, Pbkdf2, nil] do
     if crypt do
       @crypt crypt
       setup do
@@ -37,6 +37,14 @@ defmodule ComeoninEctoPasswordTest do
 
     test "#{@crypt}: Empty string does not get encrypted" do
       assert {:ok, ""} = cast("")
+    end
+
+    test "#{@crypt}: embed_as" do
+      assert :dump = embed_as(:string)
+    end
+
+    test "#{@crypt}: equal?" do
+      assert equal?("string", "string")
     end
   end
 end
