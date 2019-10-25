@@ -30,7 +30,10 @@ defmodule ComeoninEctoPassword.Mixfile do
   def package do
     [
       files: ~w(lib mix.exs README* LICENSE),
-      maintainers: ["Victor Hugo Borja <vborja@apache.org>"],
+      maintainers: [
+        "Victor Hugo Borja <vborja@apache.org>",
+        "Herman verschooten <herman@verschooten.net>"
+      ],
       licenses: ["BSD"],
       links: %{
         "GitHub" => "https://github.com/vic/comeonin_ecto_password"
@@ -49,7 +52,7 @@ defmodule ComeoninEctoPassword.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:ecto, "~> 3.0"},
+      {:ecto, "~> 3.0 or ~> 2.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:pbkdf2_elixir, "~> 1.0", optional: true},
       {:bcrypt_elixir, "~> 2.0", optional: true},
